@@ -3,16 +3,16 @@ using namespace std;
 
 template <typename T>
 void insertionSort(T d[],int N){
-	for(int j = 1; j < N; j++){
-		T x = d[j];
-		for(int i = 0; i < j; i++){
-			if(d[j] > d[i]){
-				d[j] = d[i];
-				d[i] = x;
-			}
+	for(int i = 1; i < N; i++){
+		T x = d[i];
+		int j = i-1;
+		while(j >= 0 && d[j] < x){
+			d[j+1] = d[j];
+			j--;
 		}
+		d[j+1] = x;
 		
-		cout << "Pass " << j << ":";
+		cout << "Pass " << i << ":";
 		for(int k = 0; k < 10; k++) cout << d[k] << " ";
 		cout << "\n";
 	}
